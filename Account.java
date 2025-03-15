@@ -11,7 +11,10 @@ abstract class Account {
 
     public boolean transfer(Account account, long amount) {
         if (pay(amount)) {
-            return account.add(amount);
+            if (account.add(amount)){
+                return true;
+            }
+            add(amount);
         }
         return false;
     }
